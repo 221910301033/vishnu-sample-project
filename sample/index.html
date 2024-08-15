@@ -1,0 +1,239 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Checklist Layout</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f4f4f4;
+            margin: 0;
+            padding: 20px;
+        }
+
+        .outer-container {
+            max-width: 850px;
+            margin: 0 auto;
+            border: 2px solid #ccc;
+            padding: 20px;
+            background-color: #fff;
+            border-radius: 8px;
+        }
+
+        .container {
+            margin: 0;
+        }
+
+        .checklist-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 20px;
+        }
+
+        .title {
+            font-size: 15px;
+            margin-left: 0;
+            margin-right: 440px;
+            color: orange;
+            font-weight: bold;
+        }
+
+        .actions {
+            display: flex;
+            align-items: center;
+        }
+
+        .search-box {
+            padding: 8px 32px 8px 12px;
+            margin-right: 10px;
+            border: 2px solid green;
+            border-radius: 4px;
+            color: #777;
+            background-image: url('https://www.svgrepo.com/show/38296/search.svg');
+            background-size: 16px;
+            background-position: right 10px center;
+            background-repeat: no-repeat;
+        }
+
+        .add-new {
+            padding: 8px 16px;
+            background-color: green;
+            color: white;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            white-space: nowrap;
+        }
+
+        .add-new::before {
+            content: '+';
+            margin-right: 5px;
+        }
+
+        .add-new:hover {
+            background-color: #0056b3;
+        }
+
+        .table-header {
+            display: flex;
+            background-color: #000;
+            color: #fff;
+            padding: 10px;
+        }
+
+        .column {
+            flex: 1;
+            text-align: center;
+        }
+
+        .s-no {
+            flex: 1;
+        }
+
+        .heading {
+            flex: 2;
+        }
+
+        .actions {
+            flex: 1;
+        }
+
+        .table-row {
+            display: flex;
+            padding: 10px;
+            border-bottom: 1px solid #ccc;
+        }
+
+        .table-row:last-child {
+            border-bottom: none;
+        }
+
+        /* Styles for the new form page */
+        .form-container {
+            display: none;
+            margin-top: 20px;
+            padding: 20px;
+            border: 2px solid #000;
+            border-radius: 8px;
+            background-color: #f9f9f9;
+        }
+
+        .form-title {
+            font-size: 18px;
+            font-weight: bold;
+            color: #fff;
+            background-color: #000;
+            padding: 10px;
+            text-align: center;
+            margin-bottom: 20px;
+            position: relative;
+        }
+
+        .form-title::after {
+            content: 'X';
+            position: absolute;
+            right: 10px;
+            top: 10px;
+            cursor: pointer;
+        }
+
+        .form-group {
+            margin-bottom: 20px;
+        }
+
+        .form-group label {
+            display: block;
+            margin-bottom: 5px;
+            font-weight: bold;
+            color: #333;
+        }
+
+        .form-group input {
+            width: 90%; /* Reduced the width to 90% */
+            padding: 10px;
+            border: 2px solid #ccc;
+            border-radius: 4px;
+            color: #999;
+        }
+
+        .form-group input::placeholder {
+            color: #999;
+        }
+
+        /* Added padding around the form container to ensure spacing */
+        .form-container {
+            padding: 20px;
+        }
+
+        .submit-container {
+            display: flex;
+            justify-content: center;
+        }
+
+        .submit-btn {
+            padding: 10px 20px;
+            background-color: green;
+            color: white;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+            font-size: 16px;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="outer-container">
+        <div class="container">
+            <div class="checklist-header">
+                <div class="title">Check List</div>
+                <div class="actions">
+                    <input type="text" placeholder="Search Checklist" class="search-box">
+                    <button class="add-new" onclick="showForm()">Add New</button>
+                </div>
+            </div>
+
+            <div class="table-header">
+                <div class="column s-no">S. No</div>
+                <div class="column heading">Heading</div>
+                <div class="column actions">Actions</div>
+            </div>
+        </div>
+
+        <!-- New form page -->
+        <div class="form-container" id="form-container">
+            <div class="form-title">Add New Design Form</div>
+            <div class="form-group">
+                <label>Department</label>
+                <input type="text" placeholder="Select type">
+            </div>
+            <div class="form-group">
+                <label>Category</label>
+                <input type="text" placeholder="Select type">
+            </div>
+            <div class="form-group">
+                <label>Heading</label>
+                <input type="text" placeholder="Select type">
+            </div>
+            <div class="form-group">
+                <label>Form No.</label>
+                <input type="text" placeholder="Select type">
+            </div>
+            <div class="submit-container">
+                <button class="submit-btn">Submit</button>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        function showForm() {
+            document.getElementById('form-container').style.display = 'block';
+        }
+    </script>
+</body>
+</html>
